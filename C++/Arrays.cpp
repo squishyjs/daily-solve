@@ -1,4 +1,15 @@
 #include <iostream>
+#include <vector>
+
+void vectorArray() {
+
+    std::vector<int> my_vector = {5, 10, 15, 20, 25, 30, 35};
+
+    // loop over my vector -> requires C++ 11 version
+    for (size_t i = 0; i< my_vector.size(); ++i) {
+        std::cout << "Element " << i << " = " << my_vector[i] << "\n";
+    }
+}
 
 void array_address_pointer() {
 
@@ -12,6 +23,12 @@ void array_address_pointer() {
 
     // Printing address of the array using pointer
     std::cout << "Memory address of my array is: " << ptr << std::endl;
+
+    size_t my_array_size = sizeof(my_array) / sizeof(my_array[0]);
+
+    for (size_t i = 0; i < my_array_size; ++i) {
+        std::cout << my_array[i] << "\n";
+    }
 }
 
 void array_pointers() {
@@ -21,7 +38,7 @@ void array_pointers() {
 int main() {
 
     array_pointers(); // call the function -> hello world
-
-    array_address_pointer(); // 
+    array_address_pointer(); // pointing to array memory addresses
+    vectorArray();
     return 0;
 }
