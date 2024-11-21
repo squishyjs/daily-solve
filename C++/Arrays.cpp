@@ -1,5 +1,49 @@
 #include <iostream>
 #include <vector>
+#include <string>
+
+void vectorIterators() {
+    
+    // declare iterator
+    std::vector<int>::iterator my_vector_iterator;
+
+    std::vector<int> number = {1, 2, 3};
+
+    // initialize the iterator with the first element
+    my_vector_iterator = number.begin();
+    // iterator points to the last element
+    my_vector_iterator = number.end() - 1;
+    std::cout << "num[4] = " << *my_vector_iterator;
+
+    // vector iterator points to the third element
+    std::cout << "number[4] = " << *my_vector_iterator << std::endl;
+
+    // print the vector element 
+    for (size_t i = 0; i < number.size(); ++i) {
+        std::cout << "The individual string element is: " << number[i] << std::endl;
+    }
+}
+
+void moreVectorFunctions() {
+    /* 
+    size() - returns the number of elements present in the vector
+    clear() - removes all the elements of the vector
+    front() - retunrs the first element of the vector
+    back() - returns the last element of the vector
+    empty() - returns 1 (true) if the vector is empty
+    capacity() - check the overall size of a vector
+    */
+    std::vector<std::string> my_vector_string = {"my", "name", "is", "John"};
+    std::cout << "Length of my_vector_stirng is: " << my_vector_string.size();
+    
+
+    
+
+    my_vector_string.clear();
+    std::cout << "The vector is now: " << std::endl;
+    std::cout << my_vector_string;
+}
+
 
 void vectorFunctions() {
 
