@@ -2,6 +2,20 @@
 #include <vector>
 #include <string>
 
+// Template function to print vectors
+template <typename T>
+void printVector(const std::vector<T>& vec, const std::string& vecName) {
+    std::cout << vecName << ": ";
+    if (vec.empty()) {
+        std::cout << "Vector is empty";
+    } else {
+        for (const auto& element : vec) {
+            std::cout << element << " ";
+        }
+    }
+    std::cout << std::endl;
+}
+
 void vectorIterators() {
     
     // declare iterator
@@ -34,14 +48,41 @@ void moreVectorFunctions() {
     capacity() - check the overall size of a vector
     */
     std::vector<std::string> my_vector_string = {"my", "name", "is", "John"};
-    std::cout << "Length of my_vector_stirng is: " << my_vector_string.size();
     
+    printVector(my_vector_string, "Initial Vector");
 
-    
+    // use size()
+    std::cout << "Size of a vector: " << my_vector_string.size() << std::endl;
 
+    // use capacity()
+    std::cout << "Capacity of vector: " << my_vector_string.capacity() << std::endl;
+
+    // use front()
+    if (!my_vector_string.empty()) {
+        std::cout << "First element (front): " << my_vector_string.front() << std::endl;
+    }   
+
+    // use back()
+    if (!my_vector_string.empty()) {
+        std::cout << "Last element (back): " << my_vector_string.back() << std::endl;
+    }
+
+    // use empty()
+    if (my_vector_string.empty()) {
+        std::cout << "The vector is empty" << "\n";
+    } else {
+        std::cout << "The vect is not empty" << "\n";
+    }
+    // alternatively, use ternary operator:
+    std::cout << "Is the vector empty?: " << (my_vector_string.empty() ? "Yes" : "No") << std::endl;
+
+    // use clear()
+    std::cout << "Is vector empty? " << (my_vector_string.empty() ? "It is" : "It is not") << std::endl;
+    std::cout << "Now clearing vector..." << "\n";
     my_vector_string.clear();
-    std::cout << "The vector is now: " << std::endl;
-    std::cout << my_vector_string;
+    std::cout << "Is vector empty? " << (my_vector_string.empty() ? "It is" : "It is not") << std::endl;
+
+    printVector(my_vector_string, "Cleared vector");
 }
 
 
@@ -163,9 +204,11 @@ int main() {
     // std::cout << "Printing the vector array function" << std::endl;
     // vectorArray();
 
-    std::cout << "Printing array function operations" << std::endl;
-    vectorFunctions();
+    // std::cout << "Printing array function operations" << std::endl;
+    // vectorFunctions();
     
+    std::cout << "Exploring other vector functions in C++" << "\n";
+    moreVectorFunctions();   
 
     return 0;
 }
