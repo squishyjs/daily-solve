@@ -1,3 +1,21 @@
 .vscode/
 
-*.json
+# Executables
+*.exe
+*.out
+*.app
+
+# Compiled Static Libraries
+*.lai
+*.la
+*.a
+*.lib
+
+# Compiled Object Files
+*.slo
+*.lo
+*.o
+*.obj 
+
+# Prerequisites
+*.d
