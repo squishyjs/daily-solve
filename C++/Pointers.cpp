@@ -36,32 +36,36 @@ void pointerIntroduction() {
     /* Pointers to Different Types */
 
     // Pointer to Array
+    /*
+
     int arr[5] = {1, 2, 3, 4, 5};
     int* ptr = arr; // points to first element of array
     
     // Pointer to Vector
-    // std::vector<int> vec = {1, 2, 3, 4, 5};
-    // std::vector<int>* ptr = &vec;
+    std::vector<int> vec = {1, 2, 3, 4, 5};
+    std::vector<int>* ptr = &vec;
 
-    // // Pointer to String
-    // std::string string = "Hello";
-    // std::string* ptr = &string;
+    // Pointer to String
+    std::string string = "Hello";
+    std::string* ptr = &string;
 
-    // // Pointer to a function
-    // void func() {
-    //     std:;cout << "Hello, World!" << std::endl;
-    // }
-    // void (*funcPtr)() = &func;
+    // Pointer to a function
+    void func() {
+        std:;cout << "Hello, World!" << std::endl;
+    }
+    void (*funcPtr)() = &func;
 
-    // // Pointer to a Class
-    // class MyClass {
-    // public:
-    //     void display() {
-    //         std::cout << "Hello, Class!" << std::endl;
-    //     }
-    // };
-    // MyClass obj;
-    // MyClass* ptr = &obj;
+    // Pointer to a Class
+    class MyClass {
+    public:
+        void display() {
+            std::cout << "Hello, Class!" << std::endl;
+        }
+    };
+    MyClass obj;
+    MyClass* ptr = &obj;
+    
+    */
     
 }
 
