@@ -3,7 +3,7 @@
 #include <memory>
 
 
-// Functions matierla
+// Functions material
 void pointerIntroduction();
 void pointerArithmetic();
 void memoryAllocation();
