@@ -64,7 +64,7 @@ void pointerIntroduction() {
     };
     MyClass obj;
     MyClass* ptr = &obj;
-    
+
     */
     
 }
