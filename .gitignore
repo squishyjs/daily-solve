@@ -30,3 +30,5 @@
 /bin/
 /lib/
 /dist/
+
+.DS_Store
