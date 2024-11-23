@@ -19,3 +19,14 @@
 
 # Prerequisites
 *.d
+
+# Ignore temporary files
+*.tmp
+*.log
+*.swp
+
+# Ignore build directories
+/build/
+/bin/
+/lib/
+/dist/
