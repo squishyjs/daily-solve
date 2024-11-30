@@ -1,38 +1,39 @@
 #include <iostream>
 #include <vector>
+#include <string>
 
-
-std::vector<std::vector<int>> initializeTwoDimensionalVector(int rows, int columns, int initialValue);
-void printTwoDimensionalVector(const std::vector<std::vector<int>>& vector);
+std::vector<std::vector<std::string>> initializeTwoDimensionalVector(int rows, int columns, const std::string& vectorValue);
+void printTwoDimensionalVector(const std::vector<std::vector<std::string>>& vector);
 
 int main() {
-    int rows, columns, initialValue;
+    int rows, columns;
+    std::string vectorValue;
 
     std::cout << "Let's build an N x M vector!" << std::endl;
 
     std::cout << "Enter number of row vectors: ";
     std::cin >> rows;
 
-    std::cout << "\nEnter number of column vectors: ";   
+    std::cout << "Enter number of column vectors: ";  
     std::cin >> columns;
 
-    std::cout << "\nEnter initial vector values: ";
-    std::cin >> initialValue; 
+    std::cout << "Enter initial vector values: ";
+    std::cin >> vectorValue; 
 
-    std::vector<std::vector<int>> customVec = initializeTwoDimensionalVector(rows, columns, initialValue);
+    std::vector<std::vector<std::string>> customVec = initializeTwoDimensionalVector(rows, columns, vectorValue);
     printTwoDimensionalVector(customVec);
 
     return 0;
 }
 
-std::vector<std::vector<int>> initializeTwoDimensionalVector(int rows, int columns, int initialValue) {
-    std::vector<std::vector<int>> vec(rows, std::vector<int>(columns, initialValue));
+std::vector<std::vector<std::string>> initializeTwoDimensionalVector(int rows, int columns, const std::string& vectorValue) {
+    std::vector<std::vector<std::string>> vec(rows, std::vector<std::string>(columns, vectorValue));
     return vec;
 }
 
-void printTwoDimensionalVector(const std::vector<std::vector<int>>& vector) {
+void printTwoDimensionalVector(const std::vector<std::vector<std::string>>& vector) {
     for (const auto& row : vector) {
-        for (int elem : row) {
+        for (const auto& elem : row) {
             std::cout << elem << " ";
         }
         std::cout << std::endl;
