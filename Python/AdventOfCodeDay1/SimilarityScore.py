@@ -1,4 +1,3 @@
-
 def main() -> None:
     left_list = []
     right_list = []
