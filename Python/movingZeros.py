@@ -1,16 +1,16 @@
 '''SOLVED'''
-def move_zeros(list: list[int]) -> str:
+def move_zeros(llist: list[int]) -> str:
     
-    zeros: int = []
+    zeros: list[int] = []
     original = []
-    for num in list:
+    for num in llist:
         if num == 0:
             zeros.append(num)
         else:
             original.append(num)
     
     number_of_zeros = len(zeros)
-    for i in range(number_of_zeros):
+    for _ in range(number_of_zeros):
         original.append(0)
     
     return original
