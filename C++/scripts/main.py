@@ -46,7 +46,7 @@ def iterate_through_files_in_a_directory():
         if os.path.isdir(os.path.join(path, filename)):
             print("Skipping over found directory...")
             continue
-        if (not filename.endswith((".cpp", ".hpp", ".h"))):
+        if (not filename.endswith((".cpp", ".hpp", ".h", ".clang-format"))):
             filenames.append(filename)
 
     filenames.sort() # sort the filenames
