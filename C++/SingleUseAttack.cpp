@@ -1,3 +1,4 @@
+#include <cmath>
 #include <iostream>
 
 
@@ -14,7 +15,7 @@ int main() {
             std::cout << attacks << std::endl;
             continue;
         }
-        attacks = ceil((h - y) / (x * 1.0)) + 1;
+        attacks = std::ceil((h - y) / (x * 1.0)) + 1;
         std::cout << attacks << std::endl;
     }
     return 0;
