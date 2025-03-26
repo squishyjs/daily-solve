@@ -2,7 +2,6 @@
 #include <pthread.h>
 
 
-
 int main() {
     
     int testCases;
