@@ -13,30 +13,51 @@ Input 1200 -> Output: 12
 Input 500  -> Output: 5
 Input 247  -> Output: 7
 */
-#include <ios>
 #include <iostream>
+#include <vector>
 
-int solveSmallestNotes(int &rupees) {
+int solveAgain(int &rupees) {
     if (rupees == 1) {
         return 1;
     }
+
     std::vector<int> table {100, 50, 10, 5, 2, 1};
     int operations = 0;
-    int currIndex = 0;
-    while (rupees > 0) {
-        //cook your dish here
-        if (rupees - table[currIndex] > 0) {
-            //some code that counts the amount of operations before moving to the next one
-            int denomination = table[currIndex];
-            operations += (rupees / denomination);
-            //update rupees to smaller value
-            rupees = rupees % denomination;
-        } else {
-            currIndex++;
-        }
+    for (int i = 0; i < table.size(); ++i) {
+        int currentDenomination = table[i];
+        int used = rupees / currentDenomination;
+
+        operations += used;
+
+        rupees -= used * currentDenomination;
     }
+
     return operations;
 }
+
+// int solveSmallestNotes(int &rupees) {
+//     if (rupees == 1) {
+//         return 1;
+//     }
+//     std::vector<int> table {100, 50, 10, 5, 2, 1};
+//     int operations = 0;
+//     int currIndex = 0;
+//     while (rupees > 0) {
+//         std::cout << "Rupees is: " << rupees;
+//         //cook your dish here
+//         if (rupees - table[currIndex] > 0) {
+//             //some code that counts the amount of operations before moving to the next one
+//             int denomination = table[currIndex];
+//             operations += (rupees / denomination);
+//             //update rupees to smaller value
+//             rupees = rupees - (operations * denomination);
+//             std::cout << "Rupees is now: " << rupees;
+//         } else {
+//             currIndex++;
+//         }
+//     }
+//     return operations;
+// }
 
 int main() {
     int testCases;
@@ -44,7 +65,7 @@ int main() {
     while (testCases--) {
         int rupees;
         std::cin >> rupees;
-        std::cout << solveSmallestNotes(rupees);
+        std::cout << solveAgain(rupees);
         std::cout << std::endl;
     }
     return 0;
