@@ -13,17 +13,25 @@ bool isVowel(char &specificCharacter) {
 }
 //main function
 int main() {
-    int testCases;
-    std::cin >> testCases;
-    while (testCases--) {
-        char ch;
-        std::cin >> ch;
-        bool result = isVowel(ch);
-        if (result) {
-            std::cout << "Vowel\n";
-        } else {
-            std::cout << "Consonant\n";
-        }
+    // int testCases;
+    // std::cin >> testCases;
+    // while (testCases--) {
+    //     char ch;
+    //     std::cin >> ch;
+    //     bool result = isVowel(ch);
+    //     if (result) {
+    //         std::cout << "Vowel\n";
+    //     } else {
+    //         std::cout << "Consonant\n";
+    //     }
+    // }
+    char ch;
+    std::cin >> ch;
+    // std::cout << ("Vowel\n" ? isVowel(ch) : "Consonant\n");
+    if (isVowel(ch)) {
+        std::cout << "Vowel\n";
+    } else {
+        std::cout << "Consonant\n";
     }
     return 0;
 }
