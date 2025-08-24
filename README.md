@@ -1,4 +1,8 @@
-solving some coding problems in python, so I don't forget syntax
+solving some code problems so I don't forget syntax :)
 
-
-PS. not tracking all the codes I solve ;)
+sites include:
+- CodeChef (doing most)
+- CodeWars
+- HackerRank
+- Lintode
+- CodeCombat
