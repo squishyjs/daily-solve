@@ -4,5 +4,5 @@ sites include:
 - CodeChef (doing most)
 - CodeWars
 - HackerRank
-- Lintode
+- LintCode
 - CodeCombat
