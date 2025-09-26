@@ -12,7 +12,7 @@ bool isEven(int integer) {
 
 int solve(int size, std::vector<int>& dyn_array) {
     int maxAltSum = std::accumulate(dyn_array.begin(), dyn_array.end(), 0);
-    
+
     std::vector<int> tempVector(size);
     for (int index = 0; index < (size - 1); ++index) {
         int currElement = abs(dyn_array[index]);
@@ -55,7 +55,7 @@ int solve2(int size, std::vector<int>& dyn_array) {
             int currAltSum = computeAlternatingSum(dyn_array);
 
             maxAltSum = std::max(maxAltSum, currAltSum);
-            
+
             //swap back
             std::swap(dyn_array[i], dyn_array[j]);
         }
@@ -65,7 +65,7 @@ int solve2(int size, std::vector<int>& dyn_array) {
 }
 
 int main() {
-    
+
     int testCases;
     std::cin >> testCases;
     while (testCases--) {
@@ -74,6 +74,7 @@ int main() {
         for (int i = 0; i < n; i++) {
             std::cin >> vector[i];
         }
+
 
         std::cout << solve2(n, vector);
         std::cout << std::endl;
