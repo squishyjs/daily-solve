@@ -26,6 +26,14 @@ int solve(int n, std::string s) {
     return safe;
 }
 
+int solve_two(int n, std::string &s) {
+    for (int i = 0; i < n; ++i) {
+        if (s[i] == WOLF) return i; // i is number of birds before first wolf
+    }
+
+    return n; // no wolves → all birds safe
+}
+
 int main() {
     std::ios_base::sync_with_stdio(false);
     std::cout.tie(NULL);
