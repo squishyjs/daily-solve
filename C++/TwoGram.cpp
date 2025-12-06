@@ -58,5 +58,6 @@ int32_t main() {
     // output
     std::string o = solve(n ,s);
     std::cout << o << std::endl;
+
     return 0;
 }
