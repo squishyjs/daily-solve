@@ -24,12 +24,19 @@ std::string solve(int d, int c,
     int cost_d1 = std::accumulate(day_one.begin(), day_one.end(), 0);
     int cost_d2 = std::accumulate(day_two.begin(), day_two.end(), 0);
 
+    // without coupon
     int without = cost_d1 + cost_d2 + 2 * d;
 
     int with_delivery = 0;
-    if (cost_d1 < 150) with_delivery += d;
-    if (cost_d2 < 150) with_delivery += d;
+    if (cost_d1 < 150) {
+        with_delivery += d;
+    }
 
+    if (cost_d2 < 150) {
+        with_delivery += d;
+    }
+
+    // with coupon
     int with = cost_d1 + cost_d2 + c + with_delivery;
 
     return (with < without) ? "YES" : "NO";
