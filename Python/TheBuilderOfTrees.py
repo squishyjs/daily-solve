@@ -1,8 +1,7 @@
 from types import new_class
 import unittest
 import enum
-# from preloaded import Person
-from typing import Optional, List, Dict, dataclass_transform
+from typing import Optional, List, Dict, Tuple, dataclass_transform
 
 class Branch(enum.Enum):
     ELBOW = "└──"
@@ -11,6 +10,28 @@ class Branch(enum.Enum):
     BLANK = "   "
 
 
+RELATIONS = {
+    "father", "mother", "brother", "sister", "son", "daughter",
+    "sons", "daughters", "brohters", "sisters"
+}
+
+EXPRESSIONS = { "is", "has" }
+
+ARTICLES = { "the", "a", "of" }
+
+
+ROLE_SEX = {
+    "father": "m",
+    "mother": "f",
+    "brother": "m",
+    "sister": "f",
+    "son": "m",
+    "daughter": "f",
+    "sons": "m",
+    "daughters": "f",
+    "brothers": "m",
+    "sisters": "f"
+}
 
 # TODO: john, add aliases for folke/todo-comments and change colour gradient for "PERF" to purple
 
@@ -29,8 +50,15 @@ class Person:
         self.parent = parent
         self.children: List["Person"] = []
 
+    def __repr__(self) -> str:
+        return f"Person(name={self.name!r}, sex={self.sex!r})"
+
     def __eq__(self, other):
         if not isinstance(other, Person):
+            return False
+
+        # inconsistent name or gender
+        if self.name != other.name or self.sex != other.sex:
             return False
 
         return (
@@ -62,51 +90,14 @@ class Person:
 
 # ───────────────────────────────────────────
 
-class Parent:       # mother or father
-    def __init__(
-        self,
-        parent: Optional["Person"] = None,
-        children: List[Person] = []
-    ):
-        self.parent = parent
-        self.children = children
-
-    def has_children(self) -> bool:
-        return len(self.children) > 0
-
 def is_relation(word: str) -> bool:
-    relations: list[str] = [
-        "father",
-        "mother",
-        "brother",
-        "sister",
-        "son",
-        "daughter",
-        "sons",
-        "daughters",
-        "brothers",
-        "sisters"
-    ]
-
-    return word in relations
+    return word in RELATIONS
 
 def is_expression(word: str) -> bool:
-    expressions: List[str] = [
-        "is",
-        "has"
-    ]
-
-    return word in expressions
+    return word in EXPRESSIONS
 
 def is_article(word: str) -> bool:
-    articles: List[str] = [
-        "the",
-        "a",
-        "of"
-        ","
-    ]
-
-    return word in articles
+    return word in ARTICLES
 
 def is_name(string: str) -> bool:
     for word in string:
@@ -115,30 +106,33 @@ def is_name(string: str) -> bool:
 
     return True
 
-# NOTE:
+
+
+def clean_expression(expr: str) -> str:
+    expr = expr.strip()
+    expr = expr.lower()
+    expr = expr.replace(",", " , ")
+    expr = " ".join(expr.split())
+
+    return expr
+
+
 def interpret(description: List[str]) -> Optional[Person]:
-    family_tree: Optional[Person] = None
+    if not description:
+        return None
 
-    family_names: set = set()
-
-    for expression in description:
-        for string in expression:
-
-            if (string == " "):
-                continue
-
-            curr_name = string
-            if (is_name(curr_name)):
-                if curr_name not in family_names:
-
-                    new_name = curr_name
-                    family_names.add(new_name)
-                    continue
-
-            # TODO: sort new name into some sort of tree struct
+    family_tree_root = None
+    people: Dict[str, Person] = {}
+    sibling_groups: List[List[str]] = []
+    parent_child_facts: List[Tuple[str, str]] = []  # list of (parent name, child name)
 
 
-    return family_tree
+    # TODO: parse description and build tree
+    for s in description:
+        pass
+
+
+    return family_tree_root
 
 
 class TestInput(unittest.TestCase):
