@@ -74,6 +74,34 @@ std::vector<std::string> solve(int n,
     return out;
 }
 
+// faster parse
+std::vector<std::string> solve_two(int n, std::vector<std::string> &arr)
+{
+    std::unordered_map<string, string> reverse_dir{
+        {"Left", "Right"},
+        {"Right", "Left"},
+        {"Begin", "Begin"},
+    };
+
+    std::vector<string> dirs(n), roads(n);
+
+    for (int i = 0; i < n; ++i) {
+        const string &s = arr[i];
+        size_t pos = s.find(" on ");
+        dirs[i]  = s.substr(0, pos);
+        roads[i] = s.substr(pos + 4);
+    }
+
+    std::vector<string> out;
+    out.reserve(n);
+
+    out.push_back("Begin on " + roads[n - 1]);
+    for (int i = n - 1; i >= 1; --i) {
+        out.push_back(reverse_dir[dirs[i]] + " on " + roads[i - 1]);
+    }
+    return out;
+}
+
 int main(void) {
     int t;
     std::cin >> t;
