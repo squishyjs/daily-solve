@@ -1,4 +1,11 @@
 #include <stdio.h>
+#include <stdint.h>
+
+#include <math.h>
+#include <stdlib.h>
+
+typedef uint32_t u32;
+typedef uint64_t u64;
 
 void print_new_line() {
     printf("\n");
