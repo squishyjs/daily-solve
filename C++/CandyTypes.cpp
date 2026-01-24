@@ -23,6 +23,7 @@ int64 solve(int n, std::vector<int> &arr) {
     for (const auto &it : mp) {
         int val = it.first;
         int freq = it.second;
+
         if (freq > best_freq || (freq == best_freq && val < best_el)) {
             best_freq = freq;
             best_el = val;
