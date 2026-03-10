@@ -6,9 +6,15 @@ using int64 = long long;
 
 int64 solve(int n, int x) {
     int tv_cost = x;
-    int number_of_purchasees = n % 2;
+    if (n < 6) {
+        return tv_cost;
+    }
 
-    return tv_cost * number_of_purchasees;
+    if (n % 6 != 0) {
+        return tv_cost * (n / 6 + 1);
+    }
+
+    return n / 6 * tv_cost;
 }
 
 int main(void) {
