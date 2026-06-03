@@ -10,11 +10,11 @@ using u64 = uint_fast64_t;
 
 static char solve(const int a, const int b_) {
     if (a < b_) {
-        return '>';
+        return '<';
     }
 
     if (a > b_) {
-        return '<';
+        return '>';
     }
 
     return '=';
