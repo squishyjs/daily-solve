@@ -1,4 +1,5 @@
 #include <iostream>
+#include <queue>
 #include <string>
 #include <vector>
 #include <algorithm>
@@ -29,6 +30,32 @@ std::vector<int> solve(int n, int k, std::vector<int> &arr) {
     }
 
     return result;
+}
+
+
+static void using_queue() {
+    int T;
+    scanf("%d", &T);
+    while (T--) {
+        int n, k;
+        scanf("%d %d", &n, &k);
+        std::queue<int> q;
+        for (int i = 0; i < n; i++) {
+            int x;
+            scanf("%d", &x);
+            q.push(x);
+        }
+        // move first k pearls to the back
+        for (int i = 0; i < k; i++) {
+            q.push(q.front());
+            q.pop();
+        }
+        while (!q.empty()) {
+            printf("%d ", q.front());
+            q.pop();
+        }
+        printf("\n");
+    }
 }
 
 int main(void) {
